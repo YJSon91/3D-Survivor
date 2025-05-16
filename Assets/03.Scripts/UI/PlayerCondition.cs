@@ -4,7 +4,7 @@ using UnityEngine;
 public class PlayerCondition : MonoBehaviour
 {
     public UICondition uiCondition;
-
+    
     Condition health { get { return uiCondition.health; } }
     Condition hunger { get { return uiCondition.hunger; } }
     Condition stamina { get { return uiCondition.stamina; } }
@@ -17,7 +17,7 @@ public class PlayerCondition : MonoBehaviour
         hunger.Subtract(hunger.passiveValue * Time.deltaTime);
         stamina.Add(stamina.passiveValue * Time.deltaTime);
 
-        if (hunger.curValue == 0f)
+        if (hunger.curValue == 0.0f)
         {
             health.Subtract(noHungerHealthDecay * Time.deltaTime);
             Debug.Log("배고픔으로 인해 체력이 감소합니다.");
