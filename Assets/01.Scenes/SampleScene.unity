@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 75055179}
   - component: {fileID: 75055178}
   m_Layer: 5
-  m_Name: Icon (1)
+  m_Name: HpBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -292,7 +292,7 @@ MonoBehaviour:
   maxValue: 100
   startValue: 100
   passiveValue: 5
-  uiBar: {fileID: 575860576}
+  uiBar: {fileID: 1556277796}
 --- !u!1001 &159562021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -356,6 +356,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 501295248943222296, guid: d6a5e2c4aefa6804b8f7d2af9a9676b5, type: 3}
       insertIndex: -1
       addedObject: {fileID: 159562023}
+    - targetCorrespondingSourceObject: {fileID: 501295248943222296, guid: d6a5e2c4aefa6804b8f7d2af9a9676b5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 159562027}
   m_SourcePrefab: {fileID: 100100000, guid: d6a5e2c4aefa6804b8f7d2af9a9676b5, type: 3}
 --- !u!1 &159562022 stripped
 GameObject:
@@ -383,6 +386,20 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0.5, z: 0}
+--- !u!114 &159562027
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 159562022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2e9723d16a9e554ab95ae60588ab07a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 5
+  damageRate: 1
 --- !u!1 &214808269
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,7 +494,7 @@ MonoBehaviour:
   maxValue: 100
   startValue: 100
   passiveValue: 1
-  uiBar: {fileID: 1925712091}
+  uiBar: {fileID: 75055178}
 --- !u!1 &334090681
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +972,7 @@ GameObject:
   - component: {fileID: 712742788}
   - component: {fileID: 712742787}
   m_Layer: 5
-  m_Name: Icon (1)
+  m_Name: HgBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1259,8 +1276,9 @@ GameObject:
   - component: {fileID: 1120835969}
   - component: {fileID: 1120835971}
   - component: {fileID: 1120835970}
+  - component: {fileID: 1120835972}
   m_Layer: 5
-  m_Name: Image
+  m_Name: DamageIndicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1323,6 +1341,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1120835968}
   m_CullTransparentMesh: 1
+--- !u!114 &1120835972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1120835968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1eac96746d12884409f3ba1577c17089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  image: {fileID: 1120835970}
+  flashSpeed: 0.5
 --- !u!1 &1421787235
 GameObject:
   m_ObjectHideFlags: 0
@@ -1430,7 +1462,7 @@ GameObject:
   - component: {fileID: 1556277797}
   - component: {fileID: 1556277796}
   m_Layer: 5
-  m_Name: Icon (1)
+  m_Name: StBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1609,6 +1641,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1eac96746d12884409f3ba1577c17089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  image: {fileID: 0}
+  flashSpeed: 0
 --- !u!1 &1638132502
 GameObject:
   m_ObjectHideFlags: 0
