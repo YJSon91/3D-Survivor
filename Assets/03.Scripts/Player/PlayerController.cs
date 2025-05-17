@@ -16,7 +16,8 @@ public class PlayerController : MonoBehaviour
     public float maxXLook;
     private float camCurXRot;
     public float lookSensitivity;
-
+    
+    public Action inventory;
     private Vector2 mouseDelta;
 
     [HideInInspector]
@@ -110,9 +111,17 @@ public class PlayerController : MonoBehaviour
 
         return false;
     }
-
-    public void ToggleCursor(bool toggle)
+    public void OnInventoryInput(InputAction.CallbackContext context)
     {
+        if (context.phase == InputActionPhase.Started)
+        {
+            inventory?.Invoke();
+            ToggleCursor();
+        }
+    }
+    void ToggleCursor()
+    {
+        bool toggle = Cursor.lockState == CursorLockMode.Locked;
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
     }
