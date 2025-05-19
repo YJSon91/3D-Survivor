@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 4482951747066985413}
   - component: {fileID: 5592886697142857562}
   - component: {fileID: 2282877804147000231}
-  - component: {fileID: 2852973924225218812}
-  m_Layer: 0
+  - component: {fileID: 3857919333766742488}
+  m_Layer: 7
   m_Name: Item_Carrot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &2852973924225218812
+--- !u!114 &3857919333766742488
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15550c253da0b8145970f44b46fb121a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 65815ff378857e44c8c6a3cfb379264b, type: 2}
 --- !u!1001 &7506055943754214682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,6 +159,10 @@ PrefabInstance:
     - target: {fileID: 4333536560383591219, guid: ac3960763d9ed134b93e9bf2315734f3, type: 3}
       propertyPath: m_Name
       value: Carrot
+      objectReference: {fileID: 0}
+    - target: {fileID: 4333536560383591219, guid: ac3960763d9ed134b93e9bf2315734f3, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8985614805652588435, guid: ac3960763d9ed134b93e9bf2315734f3, type: 3}

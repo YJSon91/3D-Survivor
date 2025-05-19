@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 6346240492307633663}
   - component: {fileID: 4276742088709017752}
   - component: {fileID: 769897955438828315}
-  - component: {fileID: 7554824777410514632}
-  m_Layer: 0
+  - component: {fileID: 5092359519294375056}
+  m_Layer: 7
   m_Name: Item_Sword
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &7554824777410514632
+--- !u!114 &5092359519294375056
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15550c253da0b8145970f44b46fb121a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 622eeae78196da8448a1bad7ab6db795, type: 2}
 --- !u!1001 &1516111946906460419
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -106,6 +107,10 @@ PrefabInstance:
     - target: {fileID: 355312524381552382, guid: b84d7ca3927758646a65731cc107aa76, type: 3}
       propertyPath: m_Name
       value: Sword_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 355312524381552382, guid: b84d7ca3927758646a65731cc107aa76, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1127450730860520516, guid: b84d7ca3927758646a65731cc107aa76, type: 3}
       propertyPath: m_LocalPosition.x

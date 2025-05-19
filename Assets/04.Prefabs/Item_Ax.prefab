@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 249300077613861327}
   - component: {fileID: 6856931889643018096}
   - component: {fileID: 8461094331820646308}
-  - component: {fileID: 5888026078826210836}
-  m_Layer: 0
+  - component: {fileID: 8803710578222869295}
+  m_Layer: 7
   m_Name: Item_Ax
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &5888026078826210836
+--- !u!114 &8803710578222869295
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,6 +95,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15550c253da0b8145970f44b46fb121a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: 0f957fbcc33a94146aa6af6df3c6e3b8, type: 2}
 --- !u!1001 &3893171141847021971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -106,6 +107,10 @@ PrefabInstance:
     - target: {fileID: 8203073568141072114, guid: 6cd1ac9652a50da4485a86492f47c63d, type: 3}
       propertyPath: m_Name
       value: Ax_01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8203073568141072114, guid: 6cd1ac9652a50da4485a86492f47c63d, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8835212951578315848, guid: 6cd1ac9652a50da4485a86492f47c63d, type: 3}
       propertyPath: m_LocalPosition.x
