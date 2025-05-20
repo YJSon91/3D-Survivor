@@ -86,11 +86,11 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        Vector3 dir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
-        dir *= moveSpeed;
-        dir.y = rigidbody.velocity.y;
+        Vector3 moveDir = transform.forward * curMovementInput.y + transform.right * curMovementInput.x;
+        Vector3 velocity = moveDir * moveSpeed;
+        velocity.y = rigidbody.velocity.y; // y속도 유지
 
-        rigidbody.velocity = dir;
+        rigidbody.velocity = velocity; // 최소한 덮어쓰기 줄이기
     }
 
     void CameraLook()
@@ -136,6 +136,9 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
     }
-    
+    public void GetRigidBody(out Rigidbody rb)
+    {
+        rb = rigidbody;
+    }
 }
    

@@ -5141,7 +5141,7 @@ MonoBehaviour:
   curValue: 0
   maxValue: 500
   startValue: 400
-  passiveValue: 20
+  passiveValue: 2
   uiBar: {fileID: 712742787}
 --- !u!1 &1427765504
 GameObject:
@@ -6751,6 +6751,63 @@ Transform:
   - {fileID: 6872148546924977012}
   m_Father: {fileID: 6601728648912286292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &1013616662756986515
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1597118670112351799, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 19
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597118670112351799, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.631
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597118670112351799, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -6.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597118670112351799, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597118670112351799, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597118670112351799, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597118670112351799, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597118670112351799, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597118670112351799, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1597118670112351799, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5719095749888334060, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
+      propertyPath: m_Name
+      value: JumpCube
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 48c3d0e12f166f343a5cdea73b6c060e, type: 3}
 --- !u!4 &1016442697597700759
 Transform:
   m_ObjectHideFlags: 0
@@ -9154,3 +9211,4 @@ SceneRoots:
   - {fileID: 407515392}
   - {fileID: 907972636}
   - {fileID: 169890621}
+  - {fileID: 1013616662756986515}
