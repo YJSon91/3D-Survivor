@@ -27,6 +27,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody rigidbody;
     private Animator animator;
     private SkinnedMeshRenderer[] meshRenderers;
+    private EquipTool equipTool;
 
     private void Awake()
     {
@@ -74,10 +75,12 @@ public class PlayerController : MonoBehaviour
 
     public void OnJumpInput(InputAction.CallbackContext context)
     {
+        
         if (context.phase == InputActionPhase.Started && IsGrounded())
         {
-            rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
             animator.SetTrigger("Jump");
+            rigidbody.AddForce(Vector2.up * jumpPower, ForceMode.Impulse);
+            
         }
     }
 
@@ -133,4 +136,6 @@ public class PlayerController : MonoBehaviour
         Cursor.lockState = toggle ? CursorLockMode.None : CursorLockMode.Locked;
         canLook = !toggle;
     }
+    
 }
+   

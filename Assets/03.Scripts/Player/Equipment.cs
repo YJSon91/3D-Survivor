@@ -11,6 +11,7 @@ public class Equipment : MonoBehaviour
 
     private PlayerController controller;
     private PlayerCondition condition;
+    private Animator animator;
 
 
     // Start is called before the first frame update
@@ -18,6 +19,7 @@ public class Equipment : MonoBehaviour
     {
         condition = GetComponent<PlayerCondition>();
         controller = GetComponent<PlayerController>();
+        animator = GetComponentInChildren<Animator>();
     }
 
     public void EquipNew(ItemData data)
@@ -42,6 +44,7 @@ public class Equipment : MonoBehaviour
             if (curEquip != null)
             {
                 curEquip.OnAttackInput();
+                animator.SetTrigger("Attack");
             }
         }
     }

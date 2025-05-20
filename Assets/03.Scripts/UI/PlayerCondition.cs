@@ -6,7 +6,6 @@ public interface IDamagable
 }
 
 public class PlayerCondition : MonoBehaviour, IDamagable
-
 {
     public UICondition uiCondition;
     
