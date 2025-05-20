@@ -217,6 +217,11 @@ public class UIInventory : MonoBehaviour
                         condition.Heal(selectedItem.consumables[i].value); break;
                     case ConsumableType.Hunger:
                         condition.Eat(selectedItem.consumables[i].value); break;
+                    case ConsumableType.SpeedUp:
+
+                        controller.SpeedUp(1.5f, 30f); // 1.5배 속도로 30초 동안
+                        break;
+                        
                 }
             }
             RemoveSelctedItem();

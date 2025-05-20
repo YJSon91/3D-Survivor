@@ -10,9 +10,11 @@ public class JumpCube : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             Rigidbody playerRb = collision.gameObject.GetComponent<Rigidbody>();
+            Animator playerAnimator = collision.gameObject.GetComponent<Animator>();
 
             if (playerRb != null)
             {
+                playerAnimator.SetTrigger("Jump"); // 점프 애니메이션 트리거
                 playerRb.velocity = new Vector3(playerRb.velocity.x, 0f, playerRb.velocity.z);
                 playerRb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange); // 더 확실하게 튐
             }

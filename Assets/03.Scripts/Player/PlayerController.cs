@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -139,6 +140,20 @@ public class PlayerController : MonoBehaviour
     public void GetRigidBody(out Rigidbody rb)
     {
         rb = rigidbody;
+    }
+    public void SpeedUp(float multiplier, float duration)
+    {
+        StartCoroutine(SpeedUpCoroutine(multiplier, duration));
+    }
+
+    private IEnumerator SpeedUpCoroutine(float multiplier, float duration)
+    {
+        float originalSpeed = moveSpeed;
+        moveSpeed *= multiplier;
+
+        yield return new WaitForSeconds(duration);
+
+        moveSpeed = originalSpeed;
     }
 }
    
