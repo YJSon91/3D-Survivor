@@ -25,10 +25,14 @@ public class PlayerController : MonoBehaviour
 
    
     private Rigidbody rigidbody;
+    private Animator animator;
+    private SkinnedMeshRenderer[] meshRenderers;
 
     private void Awake()
     {
         rigidbody = GetComponent<Rigidbody>();
+        animator = GetComponentInChildren<Animator>();
+        meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
     }
 
     void Start()
