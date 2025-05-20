@@ -5,11 +5,13 @@ public enum ItemType
     Resource,
     Equipable,
     Consumable,
+    
     Jump
 }
 
 public enum ConsumableType
 {
+    SpeedUp,
     Hunger,
     Health
 }
@@ -41,6 +43,5 @@ public class ItemData : ScriptableObject
     [Header("Equip")]
     public GameObject equipPrefab;
 
-    [Header("Jump")]
-    public GameObject jumpPrefab;
+    
 }
