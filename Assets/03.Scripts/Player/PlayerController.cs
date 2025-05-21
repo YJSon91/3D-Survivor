@@ -141,15 +141,15 @@ public class PlayerController : MonoBehaviour
     {
         rb = rigidbody;
     }
-    public void SpeedUp(float multiplier, float duration)
+    public void SpeedUp(float speedupValue, float duration)
     {
-        StartCoroutine(SpeedUpCoroutine(multiplier, duration));
+        StartCoroutine(SpeedUpCoroutine(speedupValue, duration));
     }
 
-    private IEnumerator SpeedUpCoroutine(float multiplier, float duration)
+    private IEnumerator SpeedUpCoroutine(float speedupValue, float duration)
     {
         float originalSpeed = moveSpeed;
-        moveSpeed *= multiplier;
+        moveSpeed += speedupValue;
 
         yield return new WaitForSeconds(duration);
 

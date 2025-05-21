@@ -219,7 +219,7 @@ public class UIInventory : MonoBehaviour
                         condition.Eat(selectedItem.consumables[i].value); break;
                     case ConsumableType.SpeedUp:
 
-                        controller.SpeedUp(1.5f, 30f); // 1.5배 속도로 30초 동안
+                        controller.SpeedUp(selectedItem.consumables[i].value, 30f); // 1.5배 속도로 30초 동안
                         break;
                         
                 }
