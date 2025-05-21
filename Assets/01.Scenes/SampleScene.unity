@@ -1551,7 +1551,7 @@ MonoBehaviour:
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 55
-  lookSensitivity: 0.2
+  lookSensitivity: 0.3
   canLook: 1
   thirdPersonCamera: {fileID: 963194229}
 --- !u!114 &376831411
@@ -3039,8 +3039,8 @@ MonoBehaviour:
   maxDistance: 10
   zoomSpeed: 3
   distanceSmoothTime: 0.2
-  yOffset: 1
-  mouseSensitivity: 3
+  yOffset: 1.7
+  mouseSensitivity: 6
   pitchMin: -40
   pitchMax: 80
   rotationSmoothTime: 0.12
