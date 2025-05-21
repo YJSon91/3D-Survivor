@@ -3037,10 +3037,10 @@ MonoBehaviour:
   distance: 5
   minDistance: 1
   maxDistance: 10
-  zoomSpeed: 2
+  zoomSpeed: 3
   distanceSmoothTime: 0.2
   yOffset: 1
-  mouseSensitivity: 2
+  mouseSensitivity: 3
   pitchMin: -40
   pitchMax: 80
   rotationSmoothTime: 0.12
