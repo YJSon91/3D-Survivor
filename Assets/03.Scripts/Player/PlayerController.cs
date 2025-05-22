@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 curMovementInput;
     public float jumpPower;
     public LayerMask groundLayerMask;
+    private float _baseMoveSpeed; // 원래 속도를 저장할 변수
 
     [Header("Look")]
     public float lookSensitivity = 1.0f; // 기본값을 1.0f 정도로 설정하거나 인스펙터에서 조절
@@ -33,6 +34,7 @@ public class PlayerController : MonoBehaviour
     private SkinnedMeshRenderer[] meshRenderers;
     private EquipTool equipTool;
     public ThirdPersonCamera thirdPersonCamera;
+    private Coroutine _activeSpeedUpCoroutine;// 현재 실행 중인 SpeedUp 코루틴을 저장할 변수
 
     private void Awake()
     {
@@ -40,6 +42,8 @@ public class PlayerController : MonoBehaviour
         animator = GetComponentInChildren<Animator>();
         meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
         thirdPersonCamera = FindObjectOfType<ThirdPersonCamera>(); // 씬에 하나만 있다면 이렇게 찾아도 됨
+        _baseMoveSpeed = moveSpeed;                         // Awake 시점의 moveSpeed를 기본 속도로 저장
+
     }
 
     void Start()
@@ -112,13 +116,7 @@ public class PlayerController : MonoBehaviour
     {
         // 플레이어의 좌우 회전 (Y축)
         transform.eulerAngles += new Vector3(0, mouseDelta.x * lookSensitivity, 0);
-
-        // 기존 카메라 상하 회전 (X축) 및 cameraContainer 조작은 주석 처리
-        /*
-        camCurXRot += mouseDelta.y * lookSensitivity;
-        camCurXRot = Mathf.Clamp(camCurXRot, minXLook, maxXLook);
-        cameraContainer.localEulerAngles = new Vector3(-camCurXRot, 0, 0);
-        */
+            
     }
 
     bool IsGrounded()
@@ -161,17 +159,52 @@ public class PlayerController : MonoBehaviour
     }
     public void SpeedUp(float speedupValue, float duration)
     {
-        StartCoroutine(SpeedUpCoroutine(speedupValue, duration));
+        // 1. 이미 실행 중인 SpeedUp 코루틴이 있다면 중단합니다.
+        if (_activeSpeedUpCoroutine != null)
+        {
+            StopCoroutine(_activeSpeedUpCoroutine);
+            // _activeSpeedUpCoroutine은 해당 코루틴의 finally 블록에서 null로 설정될 것입니다.
+            // 또는 여기서 즉시 moveSpeed를 _baseMoveSpeed로 리셋할 수도 있지만,
+            // 아래 새 코루틴이 어차피 _baseMoveSpeed 기준으로 속도를 설정하므로,
+            // 중복되거나 순서 문제를 야기할 수 있습니다. 코루틴의 finally에서 처리하는 것이 더 안전합니다.
+        }
+
+        // 2. 새로운 SpeedUp 코루틴을 시작하고, 그 참조를 저장합니다.
+        _activeSpeedUpCoroutine = StartCoroutine(SpeedUpCoroutineInternal(speedupValue, duration));
     }
 
-    private IEnumerator SpeedUpCoroutine(float speedupValue, float duration)
+    // 수정된 SpeedUpCoroutine (이름을 SpeedUpCoroutineInternal로 변경하여 명확히 구분)
+    private IEnumerator SpeedUpCoroutineInternal(float extraSpeed, float duration)
     {
-        float originalSpeed = moveSpeed;
-        moveSpeed += speedupValue;
+        // 이 코루틴 인스턴스가 _activeSpeedUpCoroutine에 할당된 바로 그 인스턴스인지 확인하기 위함입니다.
+        // StartCoroutine()이 반환하는 Coroutine 객체를 직접 비교하는 것이 가장 확실합니다.
+        Coroutine thisCoroutineInstance = _activeSpeedUpCoroutine;
 
-        yield return new WaitForSeconds(duration);
+        try
+        {
+            // 속도를 기본 속도(_baseMoveSpeed) 기준으로 증가시킵니다.
+            moveSpeed = _baseMoveSpeed + extraSpeed;
+            Debug.Log($"Speed UP: 속도가 {moveSpeed}로 변경되었습니다. (기본: {_baseMoveSpeed}, 추가: {extraSpeed}). 지속시간: {duration}초");
 
-        moveSpeed = originalSpeed;
+            yield return new WaitForSeconds(duration);
+        }
+        finally
+        {
+            // 이 finally 블록은 코루틴이 정상적으로 끝나거나, StopCoroutine으로 중단될 때 항상 실행됩니다.
+
+            // 현재 _activeSpeedUpCoroutine이 이 코루틴 인스턴스 자신일 경우에만 속도를 원래대로 복구하고 참조를 null로 설정합니다.
+            // 이렇게 하면, 이 코루틴이 중단되고 바로 다음 새 코루틴이 시작되었을 때,
+            // 이전 코루틴의 finally 블록이 새 코루틴의 속도 설정을 덮어쓰는 것을 방지합니다.
+            if (_activeSpeedUpCoroutine == thisCoroutineInstance)
+            {
+                moveSpeed = _baseMoveSpeed;
+                _activeSpeedUpCoroutine = null; // 현재 활성화된 코루틴이 없음을 표시
+                Debug.Log($"Speed UP: 효과 종료. 속도가 기본값({moveSpeed})으로 복구되었습니다.");
+            }
+            // else의 경우는 이 코루틴이 중단되었고, 그 사이에 _activeSpeedUpCoroutine이
+            // 이미 새로운 코루틴의 참조로 업데이트된 경우입니다. 이 때는 아무 작업도 하지 않아
+            // 새로운 코루틴의 상태를 방해하지 않습니다.
+        }
     }
 }
    
